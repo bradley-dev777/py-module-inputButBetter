@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/inputButBetter.egg-info/PKG-INFO
+src/inputButBetter.egg-info/SOURCES.txt
+src/inputButBetter.egg-info/dependency_links.txt
+src/inputButBetter.egg-info/top_level.txt
+src/inputbutbetter/__init__.py
+src/inputbutbetter/main.py
+tests/test_1.py
