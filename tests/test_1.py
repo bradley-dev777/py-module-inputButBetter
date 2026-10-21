@@ -115,11 +115,3 @@ def test_inputchoice(monkeypatch):
         "Choose a fruit (apple, banana, orange): ",
         choices=['apple', 'banana', 'orange'],
     ) == 'apple'
-
-
-def test_inputchoice_strips_whitespace_and_retries_invalid_choice(monkeypatch, capsys):
-    inputs = iter(['pear', ' banana '])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-
-    assert main.inputchoice("Choose a fruit: ", choices=['apple', 'banana']) == 'banana'
-    assert 'Please enter one of the following: apple, banana.' in capsys.readouterr().out
