@@ -128,6 +128,28 @@ def inputarrlooping(prompt: str, endsignal: str = 'done', err_msg: str = "Please
         values.append(value)
     return values
 
+def inputdict(prompt: str, separator: str = ':', delimiter: str = ',', err_msg: str = "Please enter key-value pairs in the format 'key{separator}value', separated by '{delimiter}'{}.") -> dict: 
+    """Input function for dictionaries.
+
+    Args:
+        prompt (str): The prompt to show to the user.
+        separator (str, optional): The separator between keys and values. Defaults to ':'.
+        delimiter (str, optional): The delimiter between key-value pairs. Defaults to ','.
+        err_msg (str, optional): The error message to display if input is invalid. Defaults to "Please enter key-value pairs in the format 'key:value', separated by commas.".
+
+    Returns:
+        dict: A dictionary of the key-value pairs entered by the user.
+    """
+    while True: 
+        value = input(prompt).strip()
+        if value: 
+            try: 
+                return {item.split(':')[0].strip(): item.split(':')[1].strip() for item in value.split(',')}
+            except IndexError: 
+                print(err_msg)
+        else: 
+            print(err_msg)
+
 def inputchoice(prompt: str, choices: list, err_msg: str = "Please enter one of the following:  {choices}.") -> str: 
     """Input function restricted to a set of values.
 
